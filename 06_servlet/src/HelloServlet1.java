@@ -7,9 +7,9 @@ import java.io.IOException;
  * @date 2020-10-10 10:07 上午
  * @description
  */
-public class Hellosservlet implements Servlet {
+public class HelloServlet1 implements Servlet {
     //单例的 就创建一次
-    public Hellosservlet() {
+    public HelloServlet1() {
         System.out.println("1 Hellosservlet的构造器····");
     }
 
