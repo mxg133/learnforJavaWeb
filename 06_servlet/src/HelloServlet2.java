@@ -13,6 +13,12 @@ public class HelloServlet2 extends HttpServlet {
     public HelloServlet2() {
     }
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        System.out.println("重写了init方法 ing········");
+    }
+
     /**
      * doGet（）在get请求的时候调用
      * @param req

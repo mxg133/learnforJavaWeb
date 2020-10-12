@@ -17,6 +17,12 @@ public class HelloServlet1 implements Servlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         System.out.println("2 Hellosservlet的init()初始化方法····");
+
+        System.out.println("HelloServlet1的别名是：->" + servletConfig.getServletName());
+
+        System.out.println("初始化参数username的值是：" + servletConfig.getInitParameter("username"));
+
+        System.out.println("初始化参数的url值是：" + servletConfig.getInitParameter("url"));
     }
 
     @Override

@@ -6,12 +6,21 @@
     <servlet>
         <servlet-name>helloServlet1</servlet-name>
         <servlet-class>HelloServlet1</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>helloServlet1</servlet-name>
         <url-pattern>/hello1</url-pattern>
     </servlet-mapping>
-
+<!--```````-->
     <servlet>
         <servlet-name>HelloServlet2</servlet-name>
         <servlet-class>HelloServlet2</servlet-class>
@@ -21,11 +30,19 @@
         <url-pattern>/hello2</url-pattern>
     </servlet-mapping>
 
-
+    <!--```````-->
 
     <servlet>
         <servlet-name>Servlet3</servlet-name>
         <servlet-class>Servlet3</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root3</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test3</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Servlet3</servlet-name>

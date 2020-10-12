@@ -1,3 +1,4 @@
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,5 +17,9 @@ public class Servlet3 extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("通过快捷创建的Servlet3程序doGet````");
+        ServletConfig servletConfig = getServletConfig();
+        System.out.println(servletConfig);
+
+        System.out.println(servletConfig.getInitParameter("username"));
     }
 }
