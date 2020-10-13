@@ -18,6 +18,7 @@ public class Response1 extends HttpServlet {
 //        resp.setHeader("Location", "http://localhost:8080/07_servlet/response2");//对
 //        resp.setHeader("Location", "http://localhost:8080");
 
+        //一行搞定
         resp.sendRedirect("http://localhost:8080");
     }
 }
