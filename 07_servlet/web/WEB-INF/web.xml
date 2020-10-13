@@ -3,11 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
     <servlet>
         <servlet-name>RequestAPIServlet</servlet-name>
         <servlet-class>RequestAPIServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RequestAPIServlet</servlet-name>
         <url-pattern>/requestAPIServlet</url-pattern>
@@ -15,40 +15,32 @@
 
 
     <servlet>
-        <servlet-name>ParameteServlet</servlet-name>
-        <servlet-class>ParameteServlet</servlet-class>
+        <servlet-name>ParameterServlet</servlet-name>
+        <servlet-class>ParameterServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>ParameteServlet</servlet-name>
-        <url-pattern>/parameteServlet</url-pattern>
+        <servlet-name>ParameterServlet</servlet-name>
+        <url-pattern>/parameterServlet</url-pattern>
     </servlet-mapping>
-
-
 
     <servlet>
         <servlet-name>Servlet1</servlet-name>
         <servlet-class>Servlet1</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>Servlet1</servlet-name>
         <url-pattern>/servlet1</url-pattern>
     </servlet-mapping>
 
 
-
     <servlet>
         <servlet-name>Servlet2</servlet-name>
         <servlet-class>Servlet2</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>Servlet2</servlet-name>
         <url-pattern>/servlet2</url-pattern>
     </servlet-mapping>
-
-
 
 
     <servlet>
@@ -59,4 +51,35 @@
         <servlet-name>ForwardC</servlet-name>
         <url-pattern>/forwardC</url-pattern>
     </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <servlet-class>ResponseIOServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <url-pattern>/responseIOServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Response1</servlet-name>
+        <servlet-class>Response1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response1</servlet-name>
+        <url-pattern>/response1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Response2</servlet-name>
+        <servlet-class>Response2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response2</servlet-name>
+        <url-pattern>/response2</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>
