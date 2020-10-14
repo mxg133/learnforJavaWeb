@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JavaWebProjrce_book:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaWebProjrce_book_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="JavaWebProjrce_book/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JavaWebProjrce_book" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/JavaWebProjrce_book/web/WEB-INF/lib/druid-1.1.10.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/JavaWebProjrce_book/web/WEB-INF/lib/mysql-connector-java-8.0.21.jar" />
+          <element id="library" level="module" name="JUnit4" module-name="JavaWebProjrce_book" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
