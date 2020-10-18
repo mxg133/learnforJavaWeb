@@ -1,9 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>我的订单</title>
-<link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
+	<%@ include file="/pages/common/head.jsp"%>
 <style type="text/css">
 	h1 {
 		text-align: center;
@@ -16,12 +17,7 @@
 	<div id="header">
 			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
 			<span class="wel_word">我的订单</span>
-			<div>
-				<span>欢迎<span class="um_span">韩总</span>光临尚硅谷书城</span>
-				<a href="../order/order.html">我的订单</a>
-				<a href="../../../../JavaWebProjrce_book/web/index.html">注销</a>&nbsp;&nbsp;
-				<a href="../../../../JavaWebProjrce_book/web/index.html">返回</a>
-			</div>
+		<%@ include file="/pages/common/login_success_menu.jsp"%>
 	</div>
 	
 	<div id="main">
@@ -57,11 +53,8 @@
 		
 	
 	</div>
-	
-	<div id="bottom">
-		<span>
-			尚硅谷书城.Copyright &copy;2015
-		</span>
-	</div>
+
+	<%@ include file="/pages/common/foot.jsp"%>
+
 </body>
 </html>

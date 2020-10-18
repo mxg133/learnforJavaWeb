@@ -26,15 +26,15 @@ public class RegietServlet extends HttpServlet {
         if ("abcde".equalsIgnoreCase(code)) {
             if (userService.existUsername(username)) {
                 System.out.println("存在了！不能注册 正在跳转注册页面·····");
-                request.getRequestDispatcher("/pages/user/regist.html").forward(request, response);
+                request.getRequestDispatcher("/pages/user/regist.jsp").forward(request, response);
             }else {
                 userService.login(new User(null, username, password, email));
                 System.out.println("好 注册OK！ 正在跳转成功页面·····");
-                request.getRequestDispatcher("/pages/user/regist_success.html").forward(request, response);
+                request.getRequestDispatcher("/pages/user/regist_success.jsp").forward(request, response);
             }
         }else {
             System.out.println("不争气,,验证码不对！");
-            request.getRequestDispatcher("/pages/user/regist.html").forward(request, response);
+            request.getRequestDispatcher("/pages/user/regist.jsp").forward(request, response);
         }
 //        request.getParameter("")
 

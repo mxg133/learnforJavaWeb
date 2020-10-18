@@ -3,12 +3,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+<!--    <servlet>-->
+<!--        <servlet-name>RegietServlet</servlet-name>-->
+<!--        <servlet-class>web.RegietServlet</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>RegietServlet</servlet-name>-->
+<!--        <url-pattern>/regietServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
+
     <servlet>
-        <servlet-name>RegietServlet</servlet-name>
-        <servlet-class>web.RegietServlet</servlet-class>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>web.UserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>BaseServlet</servlet-name>
+        <servlet-class>web.BaseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>RegietServlet</servlet-name>
-        <url-pattern>/regietServlet</url-pattern>
+        <servlet-name>BaseServlet</servlet-name>
+        <url-pattern>/baseServlet</url-pattern>
     </servlet-mapping>
 </web-app>
