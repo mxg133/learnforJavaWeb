@@ -16,7 +16,7 @@ import java.util.List;
  * @date 2020-10-14 2:55 下午
  * @description
  */
-public class BaseDao {
+public abstract class BaseDao {
     private QueryRunner queryRunner = new QueryRunner();
 
     /**

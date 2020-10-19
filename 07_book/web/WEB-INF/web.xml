@@ -13,23 +13,34 @@
 <!--        <url-pattern>/regietServlet</url-pattern>-->
 <!--    </servlet-mapping>-->
 
+<!--    <servlet>-->
+<!--        <servlet-name>UserServlet</servlet-name>-->
+<!--        <servlet-class>web.UserServlet</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>UserServlet</servlet-name>-->
+<!--        <url-pattern>/userServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+
+<!--    <servlet>-->
+<!--        <servlet-name>userServlet</servlet-name>-->
+<!--        <servlet-class>web.UserServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>userServlet</servlet-name>-->
+<!--        <url-pattern>/userServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+
+
     <servlet>
-        <servlet-name>UserServlet</servlet-name>
-        <servlet-class>web.UserServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/userServlet</url-pattern>
-    </servlet-mapping>
-
-
-    <servlet>
-        <servlet-name>BaseServlet</servlet-name>
-        <servlet-class>web.BaseServlet</servlet-class>
+        <servlet-name>BookServlet</servlet-name>
+        <servlet-class>web.BookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>BaseServlet</servlet-name>
-        <url-pattern>/baseServlet</url-pattern>
+        <servlet-name>BookServlet</servlet-name>
+        <url-pattern>/manager/bookServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -76,5 +76,15 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="taglibs-standard-impl-1.2.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/web/WEB-INF/lib/taglibs-standard-impl-1.2.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/web/WEB-INF/lib/taglibs-standard-spec-1.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

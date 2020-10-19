@@ -11,7 +11,7 @@
     String serverName = request.getServerName();
     int serverPort = request.getServerPort();
     String contextPath = request.getContextPath();
-    String basePath = scheme + "://" + serverName + ":" + serverPort + contextPath;
+    String basePath = scheme + "://" + serverName + ":" + serverPort + contextPath + "/";
 
 %>
 <base href="<%=basePath%>">
