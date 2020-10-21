@@ -2,6 +2,7 @@ package test;
 
 import org.junit.Test;
 import pojo.Book;
+import pojo.Page;
 import service.BookService;
 import service.impl.BookServiceimpl;
 
@@ -39,5 +40,11 @@ public class BookServiceTest {
     public void queryBooks() {
         List<Book> books = bookService.queryBooks();
         System.out.println(books);
+    }
+    
+    @Test
+    public void page(){
+        System.out.println(bookService.page(1, Page.PAGE_SIZE));
+        
     }
 }
