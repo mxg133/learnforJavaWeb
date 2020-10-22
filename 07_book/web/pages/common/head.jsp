@@ -13,6 +13,8 @@
     String contextPath = request.getContextPath();
     String basePath = scheme + "://" + serverName + ":" + serverPort + contextPath + "/";
 
+    pageContext.setAttribute("basePath", basePath);
+
 %>
 <base href="<%=basePath%>">
 <link type="text/css" rel="stylesheet" href="static/css/style.css" >

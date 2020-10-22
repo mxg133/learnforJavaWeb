@@ -54,9 +54,9 @@
 				<td>${book.author}</td>
 				<td>${book.sales}</td>
 				<td>${book.stock}</td>
-<%--				<td><a href="manager/bookServlet?action=getBook&id=${book.id}&method=update">修改</a></td>--%>
-				<td><a href="manager/bookServlet?action=getBook&id=${book.id}">修改</a></td>
-				<td><a class="deleteClass" class="deleteClass" href="manager/bookServlet?action=delete&id=${book.id}">删除</a></td>
+<%--				<td><a href="client/bookServlet?action=getBook&id=${book.id}&method=update">修改</a></td>--%>
+				<td><a href="manager/bookServlet?action=getBook&id=${book.id}&pageNo=${requestScope.page.pageNo}">修改</a></td>
+				<td><a class="deleteClass" class="deleteClass" href="manager/bookServlet?action=delete&id=${book.id}&pageNo=${requestScope.page.pageNo}">删除</a></td>
 			</tr>
 		</c:forEach>
 
@@ -68,22 +68,13 @@
 			<td></td>
 			<td></td>
 <%--			<td><a href="pages/manager/book_edit.jsp?method=add">添加图书</a></td>--%>
-			<td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
+			<td><a href="pages/manager/book_edit.jsp?action=page&pageNo=${requestScope.page.pageTotal}">添加图书</a></td>
 		</tr>
 	</table>
 
-	<div id="page_nav">
-		<a href="#">首页</a>
-		<a href="#">上一页</a>
-		<a href="#">3</a>
-		【${requestScope.page.pageNo}】
-		<a href="#">5</a>
-		<a href="#">下一页</a>
-		<a href="#">末页</a>
-		共${requestScope.page.pageTotal}页，${requestScope.page.pageTotalCount}条记录
-		到第<input value="4" name="pn" id="pn_input"/>页
-		<input type="button" value="确定">
-	</div>
+	<%--		静态包含 分页条--%>
+	<%@include file="/pages/common/page_nav.jsp"%>
+
 </div>
 
 

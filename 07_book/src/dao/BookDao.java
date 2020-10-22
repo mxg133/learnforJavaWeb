@@ -23,4 +23,8 @@ public interface BookDao {
     public Integer qureyForPageTotalCount();
 
     List<Book> qureyForPageItems(int begin, int pageSize);
+
+    Integer qureyForPageTotalCountByPrice(int min, int max);
+
+    List<Book> qureyForPageItemsByprice(int begin, int pageSize, int max, int min);
 }

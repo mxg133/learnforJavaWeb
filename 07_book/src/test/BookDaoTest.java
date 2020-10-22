@@ -47,4 +47,13 @@ public class BookDaoTest {
             System.out.println(book);
         }
     }
+
+    @Test
+    public void qureyForPageTotalCountByPrice() {
+        System.out.println(bookDao.qureyForPageTotalCountByPrice(10, 50));
+    }
+
+    @Test
+    public void qureyForPageItemsByprice() {
+    }
 }
