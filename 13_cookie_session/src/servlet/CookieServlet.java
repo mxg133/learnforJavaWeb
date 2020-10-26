@@ -62,12 +62,89 @@ public class CookieServlet extends BaseServlet {
         //1、先查找到需要修改的Cookie对象
         Cookie cookie = CookieUtils.findCookie("key1", request.getCookies());
         if (cookie != null) {
-        //2、调用setValue()方法赋于新的Cookie值。
+            //2、调用setValue()方法赋于新的Cookie值。
             cookie.setValue("newV1");
-        //3、调用response.addCookie()通知客户端保存修改
+            //3、调用response.addCookie()通知客户端保存修改
             response.addCookie(cookie);
         }
         response.getWriter().write(" ok方案2 ");
     }
 
+    /**
+     * Cookie 的生命控制指的是如何管理 Cookie 什么时候被销毁(删除)
+     * setMaxAge()
+     * 正数，表示在指定的秒数后过期 负数，表示浏览器一关，Cookie 就会被删除(默认值是-1) 零，表示马上删除
+     */
+    /**
+     * 默认的会话级别的Cookie
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void defaultLifeCookie(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Cookie cookie = new Cookie("d1", "d1v1");
+
+        cookie.setMaxAge(-1);//设置存活时间
+
+        response.addCookie(cookie);
+
+    }
+
+    /**
+     * 马上删除一个Cookie
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void deleteNowCookie(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 先找到你要删除的Cookie对象
+        Cookie cookie = CookieUtils.findCookie("key1", request.getCookies());
+        if (cookie != null) {
+            // 调用setMaxAge(0);
+            cookie.setMaxAge(0);// 表示马上删除，都不需要等待浏览器关闭
+        }
+        // 调用response.addCookie(cookie);
+        response.addCookie(cookie);
+
+        response.getWriter().write("删除 k1 ");
+
+    }
+
+    /**
+     * 设置存活1个小时的Cooie
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void life3600Cookie(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Cookie cookie = new Cookie("life", "life3600");
+
+        cookie.setMaxAge(60 * 60);// 设置Cookie一小时之后被删除。无效
+        response.addCookie(cookie);
+        response.getWriter().write("已经创建了一个存活一小时的Cookie");
+    }
+
+
+    /**
+     * g)Cookie 有效路径 Path 的设置
+     * Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务器。哪些不发。
+     * path 属性是通过请求的地址来进行有效的过滤。 CookieA path=/工程路径
+     * CookieB path=/工程路径/abc
+     * 请求地址如下:
+     * http://ip:port/工程路径/a.html CookieA 发送
+     * CookieB 不发送
+     * http://ip:port/工程路径/abc/a.html CookieA 发送
+     * CookieB 发送
+     */
+
+    protected void pathCookie(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Cookie cookie = new Cookie("path1", "pathCookie1");
+        // getContextPath() ===>>>>  得到工程路径
+        cookie.setPath(request.getContextPath() + "/abc");// ===>>>>  /工程路径/abc
+        response.addCookie(cookie);
+        response.getWriter().write("创建了一个带有Path路径的Cookie");
+    }
 }

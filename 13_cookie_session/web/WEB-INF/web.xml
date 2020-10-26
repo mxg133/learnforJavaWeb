@@ -9,8 +9,29 @@
         <servlet-name>CookieServlet</servlet-name>
         <servlet-class>servlet.CookieServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>CookieServlet</servlet-name>
         <url-pattern>/cookieServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>servlet.SessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionServlet</servlet-name>
+        <url-pattern>/sessionServlet</url-pattern>
     </servlet-mapping>
 </web-app>
