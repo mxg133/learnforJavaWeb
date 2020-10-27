@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
+
 /**
  * @author 孟享广
  * @date 2020-10-14 7:49 下午
@@ -19,11 +21,15 @@ public class RegietServlet extends HttpServlet {
     private UserService userService = new UserServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 获取Session中的验证码
+        String token = (String) request.getSession().getAttribute(KAPTCHA_SESSION_KEY);
+        // 删除 Session中的验证码
+        request.getSession().removeAttribute(KAPTCHA_SESSION_KEY);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String code = request.getParameter("code");
-        if ("abcde".equalsIgnoreCase(code)) {
+        if ("token".equalsIgnoreCase(code)) {
             if (userService.existUsername(username)) {
                 System.out.println("存在了！不能注册 正在跳转注册页面·····");
                 request.getRequestDispatcher("/pages/user/regist.jsp").forward(request, response);
