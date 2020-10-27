@@ -34,4 +34,9 @@
         <servlet-name>SessionServlet</servlet-name>
         <url-pattern>/sessionServlet</url-pattern>
     </servlet-mapping>
+
+
+    <session-config>
+        <session-timeout>20</session-timeout>
+    </session-config>
 </web-app>
