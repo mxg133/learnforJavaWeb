@@ -43,10 +43,21 @@
 				</form>
 			</div>
 			<div style="text-align: center">
-				<span>您的购物车中有3件商品</span>
-				<div>
-					您刚刚将<span style="color: red">时间简史</span>加入到了购物车中
-				</div>
+				<c:if test="${not empty sessionScope.cart}">
+					<%--购物车为空的输出--%>
+					<span> </span>
+					<div>
+						您刚刚将<span style="color: red">当前购物车为空···请添加·······</span>
+					</div>
+				</c:if>
+				<c:if test="${not empty sessionScope.cart}">
+					<%--购物车非空的输出--%>
+					<span>您的购物车中有${sessionScope.cart.totalCount}件商品</span>
+					<div>
+						您刚刚将<span style="color: red">${sessionScope.lastName}</span>加入到了购物车中
+					</div>
+				</c:if>
+
 			</div>
 
 			<c:forEach items="${requestScope.page.item}" var="book">

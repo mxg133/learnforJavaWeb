@@ -45,9 +45,11 @@ public class CartServlet extends BaseServlet {
         cart.addItem(cartItem);
         System.out.println(cart);
         // 最后一个添加的商品名称
+        request.getSession().setAttribute("lastName", cartItem.getName());
         // 重定向回原来商品所在的地址页面
         String referer = request.getHeader("Referer");//得到之前的地址
         response.sendRedirect(referer);
+
     }
 
     /**
@@ -74,6 +76,7 @@ public class CartServlet extends BaseServlet {
 
     /**
      * 清空购物车
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -81,7 +84,7 @@ public class CartServlet extends BaseServlet {
      */
     protected void clear(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 1 获取购物车对象
-        Cart cart = (Cart)request.getSession().getAttribute("cart");
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
         if (cart != null) {
             // 清空购物车
             cart.clear();
@@ -90,10 +93,32 @@ public class CartServlet extends BaseServlet {
             response.sendRedirect(referer);
         }
     }
+
+    /**
+     * 修改商品数量
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void updateCount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 获取请求的参数 商品编号 、商品数量
+        int id = WebUtils.parseInt(request.getParameter("id"), 0);
+        int count = WebUtils.parseInt(request.getParameter("count"), 0);
+        // 获取Cart购物车对象
+        Cart cart = (Cart)request.getSession().getAttribute("cart");
+        // 修改商品数量
+        if (cart != null) {
+            cart.updateCount(id, count);
+            // 重定向回原来购物车展示页面
+            String referer = request.getHeader("Referer");//得到之前的地址
+            response.sendRedirect(referer);
+        }
+    }
+
+
+
 }
-
-
-
 
 
 
