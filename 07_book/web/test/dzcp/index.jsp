@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>书城首页</title>
+<title>电子产品</title>
 <link type="text/css" rel="stylesheet" href="static/css/style.css" >
 	<script type="text/javascript">
 		$(function () {
