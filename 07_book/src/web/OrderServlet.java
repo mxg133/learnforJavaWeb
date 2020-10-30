@@ -4,6 +4,7 @@ import pojo.Cart;
 import pojo.User;
 import service.OrderService;
 import service.impl.OrderServiceImpl;
+import utils.JDBCUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,9 +34,13 @@ public class OrderServlet extends BaseServlet {
             request.getRequestDispatcher("/pages/user/login.jsp").forward(request, response);
             return;
         }
+
+        System.out.println("OrderServlet程序在[" +Thread.currentThread().getName() + "]中");
+
         Integer userId = loginUser.getId();
         // 调用orderService.createOrder(Cart,Userid);生成订单
         String orderId = orderService.creatOrder(cart, userId);
+
 //        request.setAttribute("orderId", orderId);
         // 请求转发到/pages/cart/checkout.jsp
 //        request.getRequestDispatcher("/pages/cart/checkout.jsp").forward(request, response);

@@ -25,6 +25,8 @@ public abstract class BaseDao {
      * @return 如果返回-1,说明执行失败<br/>返回其他表示影响的行数
      */
     public int update(String sql, Object ... args) {
+        System.out.println(" BaseDao 程序在[" +Thread.currentThread().getName() + "]中");
+
         Connection conn = null;
         try {
             conn = JDBCUtils.getConnection3Druid();
@@ -33,10 +35,8 @@ public abstract class BaseDao {
             return i;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
-            JDBCUtils.closeResource(conn, null);
+            throw new RuntimeException(throwables);
         }
-        return -1;
     }
 
     /**
@@ -52,13 +52,11 @@ public abstract class BaseDao {
         Connection conn = null;
         try {
             conn = JDBCUtils.getConnection3Druid();
-            queryRunner.query(conn, sql, new BeanHandler<T>(type), args);
+            return queryRunner.query(conn, sql, new BeanHandler<T>(type), args);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
-            JDBCUtils.closeResource(conn, null);
+            throw new RuntimeException(throwables);
         }
-        return null;
     }
 
     /**
@@ -77,10 +75,8 @@ public abstract class BaseDao {
             return queryRunner.query(conn, sql, new BeanListHandler<T>(type), args);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
-            JDBCUtils.closeResource(conn, null);
+            throw new RuntimeException(throwables);
         }
-        return null;
     }
 
     /**
@@ -93,11 +89,9 @@ public abstract class BaseDao {
         Connection conn = null;
         try {
             return queryRunner.query(conn, sql, new ScalarHandler(), args);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            JDBCUtils.closeResource(conn, null);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException(throwables);
         }
-        return null;
     }
 }

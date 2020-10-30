@@ -31,6 +31,7 @@ public class BaseServlet extends HttpServlet {
             method.invoke(this, request, response);
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException(e);//抛给Filter过滤器
         }
     }
 

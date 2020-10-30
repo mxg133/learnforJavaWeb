@@ -11,6 +11,9 @@ import pojo.Order;
 public class OrderDaoImpl extends BaseDao implements OrderDao {
     @Override
     public int saveOrder(Order order) {
+        System.out.println("OrderDaoImpl 程序在[" +Thread.currentThread().getName() + "]中");
+
+
         String sql = "insert into t_order(`order_id`, `creat_time`, `price`, `status`, `user_id`) values(?,?,?,?,?)";
         int i = update(sql, order.getOrderId(), order.getCreatTime(), order.getPrice(), order.getStatus(), order.getUserId());
         return i;

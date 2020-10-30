@@ -29,6 +29,8 @@ public class BookDaoImpl extends BaseDao implements BookDao {
 
     @Override
     public int updateBook(Book book) {
+        System.out.println("BookDaoImpl updateBook 程序在[" +Thread.currentThread().getName() + "]中");
+
         String sql = "UPDATE t_book SET `name`=? , `author`=? , `price`=? , `sales`=? , `stock`=? , `img_path` = ? WHERE id = ?";
         int i = update(sql, book.getName(), book.getAuthor(), book.getPrice(), book.getSales(), book.getStock(), book.getImgPath(), book.getId());
         return i;
