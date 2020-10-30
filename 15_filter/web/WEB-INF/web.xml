@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+
+    <!--filter 标签用于配置一个 Filter 过滤器-->
+    <filter>
+        <!--给 filter 起一个别名-->
+        <filter-name>AdminFilter</filter-name>
+        <!--配置 filter 的全类名-->
+        <filter-class>filter.AdminFilter</filter-class>
+        
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
+    </filter>
+    <!--filter-mapping 配置 Filter 过滤器的拦截路径-->
+    <filter-mapping>
+        <!--filter-name 表示当前的拦截路径给哪个 filter 使用-->
+        <filter-name>AdminFilter</filter-name>
+        <!--url-pattern 配置拦截路径
+            /表示请求地址为:http://ip:port/工程路径/ 映射到IDEA的web目录
+            /admin/* 表示请求地址为:http://ip:port/工程路径/admin/* -->
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <filter>
+        <filter-name>Filter1</filter-name>
+        <filter-class>filter.Filter1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter1</filter-name>
+        <url-pattern>/target.jsp</url-pattern>
+    </filter-mapping>
+
+
+
+    <filter>
+        <filter-name>Filter2</filter-name>
+        <filter-class>filter.Filter2</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter2</filter-name>
+        <url-pattern>/target.jsp</url-pattern>
+    </filter-mapping>
+
+</web-app>
