@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-eq16_json_ajax_i018nuiv="Expires" content="0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			// json的定义
+			var jsonObj = {
+				"key1":12,
+				"key2":"abc",
+				"key3":true,
+				"key4":[11, "arr", false],
+				"key5":{
+					"key6_1":551,
+					"key5_2":"key5_2_value"
+				},
+				"key6":[{
+					"key6_1_1":6611,
+					"key6_1_2":6612
+				},{
+					"key6_2_1":6621,
+					"key6_2_2":6622
+				}]
+			};
+			// alert(typeof(jsonObj));// object  json就是一个对象
+
+			// json的访问
+			/**
+			 * json 的访问
+			   json 本身是一个对象。
+			   json 中的 key 我们可以理解为是对象中的一个属性。
+			   json 中的 key 访问就跟访问对象的属性一样: json 对象.key
+			 */
+			// alert(jsonObj.key1);
+			// alert(jsonObj.key1); //12
+			// alert(jsonObj.key2); // abc
+			// alert(jsonObj.key3); // true
+
+			// alert(jsonObj.key4);// 得到数组[11,"arr",false]
+			// json 中 数组值的遍历
+			// for (var i = 0; i < jsonObj.key4.length; i++) {
+			// 	alert(jsonObj.key4[i])
+			// }
+
+			// alert(jsonObj.key5.key5_1);//551
+			// alert(jsonObj.key5.key5_2);//key5_2_value
+
+			// var jsonItem = jsonObj.key6[0];
+			// alert( jsonItem.key6_1_1 ); //6611
+			// alert( jsonItem.key6_1_2 ); //6612
+
+
+			// alert(jsonObj);
+
+			// json对象转字符串
+			// 把json对象转换成为 json字符串
+			var jsonstringify = JSON.stringify(jsonObj);// 特别像 Java中对象的toString
+			alert(jsonstringify);
+
+			
+			// json字符串转json对象
+			// 把json字符串。转换成为json对象
+			var jsonObj2 = JSON.parse(jsonstringify);
+			alert(jsonObj2);
+			alert(jsonObj2.key1);// 12
+			alert(jsonObj2.key2);// abc
+
+
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<!--
+1、什么是 JSON?
+JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式。
+易于人阅读和编写。同时也易于机器解析和生成。JSON 采用完全独立于语言的文本格式，
+而且很多语言都提供了对 json 的支持(包括 C, C++, C#, Java, JavaScript, Perl, Python 等)。
+这样就使得 JSON 成为理想的数据交换格式。
+json 是一种轻量级的数据交换格式。
+轻量级指的是跟 xml 做比较。 数据交换指的是客户端和服务器之间业务数据的传递格式
+-->
