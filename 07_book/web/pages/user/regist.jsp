@@ -89,6 +89,22 @@
 
 				});
 
+
+				// 失去焦点以后·····
+				$("#username").blur(function () {
+					//1 获取用户名
+					var username = this.value;
+
+					$.getJSON("http://localhost:8080/book/userServlet", "action=ajaxExistUsername&username=" + username, function (data) {
+						if (data.existsUsername) {
+							$("spqn.errorMsg").text("用户名已存在！");
+						}else {
+							$("spqn.errorMsg").text("用户名可用！");
+						}
+					})
+
+				})
+
 			});
 
 		</script>

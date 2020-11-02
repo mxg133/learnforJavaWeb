@@ -36,6 +36,4 @@ public class BaseServlet extends HttpServlet {
             throw new RuntimeException(e);//抛给Filter过滤器
         }
     }
-
-
 }

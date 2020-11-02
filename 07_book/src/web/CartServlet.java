@@ -1,5 +1,6 @@
 package web;
 
+import com.google.gson.Gson;
 import pojo.Book;
 import pojo.Cart;
 import pojo.CartItem;
@@ -11,6 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author 孟享广
@@ -116,8 +119,34 @@ public class CartServlet extends BaseServlet {
         }
     }
 
+    protected void ajaxAddItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {        // 获取请求的参数 商品编号
+        String ids = request.getParameter("id");
+        int id = WebUtils.parseInt(ids, 0);
+        // 调用bookService.queryBookById(id):Book得到图书的信息
+        Book book = bookService.queryBookById(id);
+        // 把图书信息，转换成为CartItem商品项
+        CartItem cartItem = new CartItem(book.getId(), book.getName(), 1, book.getPrice(), book.getPrice());
+        // 调用Cart.addItem(CartItem);添加商品项
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+            request.getSession().setAttribute("cart", cart);
+        }
+        cart.addItem(cartItem);
+        System.out.println(cart);
+        // 最后一个添加的商品名称
+        request.getSession().setAttribute("lastName", cartItem.getName());
 
+        //6、返回购物车总的商品数量和最后一个添加的商品名称
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("totalCount", cart.getTotalCount());
+        resultMap.put("lastName", cartItem.getName());
 
+        Gson gson = new Gson();
+
+        String resultMapJsonString = gson.toJson(resultMap);
+        response.getWriter().write(resultMapJsonString);
+    }
 }
 
 
