@@ -14,6 +14,31 @@ import java.util.Map;
  * @author 孟享广
  * @date 2020-11-01 4:27 下午
  * @description
+ *1、什么是 JSON?
+ * JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON 采用完全独立于语言的文本格式，而且很多语言都提供了对 json 的支持(包括 C, C++, C#, Java, JavaScript, Perl, Python 等)。 这样就使得 JSON 成为理想的数据交换格式。
+ * json 是一种轻量级的数据交换格式。
+ * 轻量级指的是跟 xml 做比较。
+ * 数据交换指的是客户端和服务器之间业务数据的传递格式。
+ *
+ *
+ * 1.1、JSON 在 JavaScript 中的使用。 1.1.1、json 的定义
+ * json 是由键值对组成，并且由花括号(大括号)包围。每个键由引号引起来，键和值之间使用冒号进行分隔， 多组键值对之间进行逗号进行分隔。
+ *
+ *
+ * 1.1.2、json 的访问
+ * json 本身是一个对象。
+ * json 中的 key 我们可以理解为是对象中的一个属性。
+ * json 中的 key 访问就跟访问对象的属性一样: json 对象.key
+ *
+ *
+ * 1.1.3、json 的两个常用方法
+ * json 的存在有两种形式。
+ * 一种是:对象的形式存在，我们叫它 json 对象。
+ * 一种是:字符串的形式存在，我们叫它 json 字符串。
+ * 一般我们要操作 json 中的数据的时候，需要 json 对象的格式。
+ * 一般我们要在客户端和服务器之间进行数据交换的时候，使用 json 字符串。
+ * JSON.stringify() 把 json 对象转换成为 json 字符串
+ * JSON.parse() 把 json 字符串转换成为 json 对象
  */
 public class JsonTest {
     /**
