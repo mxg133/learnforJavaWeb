@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,32 +11,45 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="">中文</a>|
-	<a href="">english</a>
+	<%--1 使用标签设置Locale信息--%>
+	<fmt:setLocale value="${param.locale}" />
+	<%--2 使用标签设置baseName--%>
+	<fmt:setBundle basename="i18n" />
+	<%--3 使用标签输出国际化信息 --%>
+<%--	<fmt:message key="username" />--%>
+
+
+<%--	${param.locale}--%>
+
+	<a href="i18n_fmt.jsp?locale=zh_CN">中文</a>|
+	<a href="i18n_fmt.jsp?locale=en_US">English</a>
 	<center>
-		<h1>注册</h1>
+		<h1><fmt:message key="regist" /></h1>
 		<table>
 		<form>
 			<tr>
-				<td>用户名</td>
+				<td><fmt:message key="username" /></td>
 				<td><input name="username" type="text" /></td>
 			</tr>
 			<tr>
-				<td>密码</td>
+				<td><fmt:message key="password" /></td>
 				<td><input type="password" /></td>
 			</tr>
 			<tr>
-				<td>性别</td>
-				<td><input type="radio" />男<input type="radio" />女</td>
+				<td><fmt:message key="sex" /></td>
+				<td>
+					<input type="radio" /><fmt:message key="boy" />
+					<input type="radio" /><fmt:message key="girl" />
+				</td>
 			</tr>
 			<tr>
-				<td>邮箱</td>
+				<td><fmt:message key="email" /></td>
 				<td><input type="text" /></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-				<input type="reset" value="重置" />&nbsp;&nbsp;
-				<input type="submit" value="提交" /></td>
+				<input type="reset" value="<fmt:message key="reset" />" />&nbsp;&nbsp;
+				<input type="submit" value="<fmt:message key="submit" />" /></td>
 			</tr>
 			</form>
 		</table>
